@@ -39,8 +39,51 @@ function findWater(arr){
     console.log(total);
 }
 
-findWater([0, 10, 12, 6, 8, 4, 0, 0, 3, 0, 4])
+/*findWater([0, 10, 12, 6, 8, 4, 0, 0, 3, 0, 4])
 findWater([1, 1, 2, 1, 2, 3, 0, 1, 0, 3])
 findWater([3, 0, 3])
 findWater([1, 4, 8, 3, 4, 6, 2])
-findWater([1, 4, 8, 3, 4, 6, 2])
+findWater([1, 4, 8, 3, 4, 6, 2]) */
+
+/*        Problem 2       */
+
+/*Contiguous Sequence: You are given an array of integers (both positive and negative). Find the
+contiguous sequence with the largest sum. Return the sum. */
+
+
+
+function biggestString(arr){
+    let maxSum = 0;
+    let tempSum = 0;
+    let currentMax = 0;
+    for(j = 0; j < arr.length; j ++){
+        for(i = 0; i < arr.length; i++){
+            tempSum += arr[i];
+            if(tempSum > currentMax){
+                currentMax = tempSum;
+            }
+        }
+        if(currentMax > maxSum){
+            maxSum = currentMax;
+        }
+        currentMax = 0;
+        tempsum = 0;
+    }
+    console.log(maxSum);
+}
+
+function getMaxSum(arr){
+    let max = 0;
+    for (let i = 0; i < arr.length; i++){
+        let start = 0;
+        for (let j = i; j < arr.length; j++){
+            start += arr[j];
+            max = Math.max(max, start);
+        }
+    }
+    console.log(max);
+    return max;
+}
+arr = [-2, -1, 1, 10, -6, 14, 7, -6] // 26
+getMaxSum(arr);
+biggestString(arr);
