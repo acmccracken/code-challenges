@@ -226,3 +226,119 @@ let testB = isSudokuValid(
 )
 console.log(testA, testB);
 
+// Write code inside the functions
+// You will have to figure out what parameters to include
+// All functions must use recursion
+/*
+function findMax(arr){
+    // This function returns the largest number in a given array.
+    //base case
+    let largestNum = -Infinity;
+    let index = 0;
+      function max(){
+        if(index ===arr.length){
+        return largestNum;
+        }
+        if(arr[index] > largestNum){
+          largestNum = arr[index];
+        }
+        index ++
+        return max();
+    
+    }
+    return max();
+}
+
+function factorial(num){
+    // This function returns the factorial of a given number.
+  let sum = 1;
+  function fact(num){
+    console.log(num)
+    if(num < 1) {
+    return sum
+    }
+    sum *= num;
+    return fact(num-1);
+  }
+  return fact(num);
+}
+
+function fibonacci(n){
+    // This function returns the Nth number in the fibonacci sequence.
+    // https://en.wikipedia.org/wiki/Fibonacci_number
+    // For this function, the first two fibonacci numbers are 1 and 1
+  let fib = [1, 1];
+  let finalNum = n;
+  function fibHelper(n){
+    if(n === 0){
+      return fib[finalNum - 1]
+    }
+    fib.push(fib[fib.length-1] + fib[fib.length-1])
+    return fibHelper(n-1);
+  }
+  return fibHelper(n);
+}
+
+function coinFlips(n){
+    // This function returns an array of all possible outcomes from flipping a coin N times.
+    // Input type: Integer
+    // For example, coinFlips(2) would return the following:
+    // ["HH", "HT", "TH", "TT"]
+    // H stands for Heads and T stands for tails
+    // Represent the two outcomes of each flip as "H" or "T"
+  let outcomes = [];
+  let newN = n;
+  function flip(){
+    if(outcomes[n].length === newN){
+      return outcomes;
+    }
+    let length = (2^n) / 2;
+    let flipper = 1;
+    for(let i = 0; i < (2^n); i ++){
+      if(flipper = 1){
+       
+      }
+      if(length > 0){
+        
+      }
+      outcomes.push("");
+    }
+    
+  }
+  
+}
+
+function letterCombinations(){
+    // This function returns an array of all combinations of the given letters
+    // Input type: Array of single characters
+    // For example, letterCombinations(["a","b","c"]) would return the following:
+    // ["a","b","c","ab","ac","ba","bc","ca","cb","abc","acb","bac","bca","cab","cba"]
+}
+
+
+
+*/
+
+
+
+// Write a function that finds the median of 2 sorted lists.
+
+function findMedian(arrA, arrB){
+    let arrC = [];
+
+    while(arrA.length || arrB.length) {
+        if(arrA[0] > arrB[0]) {
+            arrC.push(arrB[0])
+        } else {
+            arrC.push(arrA.shift())
+        }
+    }
+
+    if(arrC.length % 2){
+       console.log(arrC[Math.floor(arrC.length / 2)])
+    } else {
+        console.log((arrC[arrC.length / 2] + arrC[(arrC.length / 2) - 1]) / 2)
+    }
+}
+
+findMedian([-5, 3, 6, 12, 15], [-12, -10, -6, -3, 4, 10])
