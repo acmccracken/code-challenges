@@ -67,3 +67,35 @@ console.log(runC)
   }
   */
 
+romanKey = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+}  
+  
+
+function romToInt(str){
+    let total = 0;
+    for(let i = 0; i < str.length; i++){
+        let char = str.charAt(i);
+        let char2 = str.charAt(i+1);
+        let num = romanKey[char];
+        let num2 = romanKey[char2];
+            if(num < num2){
+                total -= num;
+            }else{
+                total += num;
+            }
+    }
+    return total;
+} 
+
+console.log(romToInt("III"), "should be 3")
+console.log(romToInt("IV"), "should be 4")
+console.log(romToInt("IX"), "should be 9")
+console.log(romToInt("LVIII"), "should be 58")
+console.log(romToInt("MCMXCIV"), "should be 1994")
