@@ -94,8 +94,47 @@ function romToInt(str){
     return total;
 } 
 
-console.log(romToInt("III"), "should be 3")
+/*console.log(romToInt("III"), "should be 3")
 console.log(romToInt("IV"), "should be 4")
 console.log(romToInt("IX"), "should be 9")
 console.log(romToInt("LVIII"), "should be 58")
-console.log(romToInt("MCMXCIV"), "should be 1994")
+console.log(romToInt("MCMXCIV"), "should be 1994") */
+
+/*function insertionSort (array) {
+    // Loop through each element
+    for(let i = 0; i < array.length - 1; i ++){
+      let holder = array[i+1];
+      let tempI = i;
+      let exit = false;
+      if(holder < array[tempI]){
+        while((holder < array[tempI]) && exit === false){
+            if(tempI > 0){
+                tempI --;
+            }else{
+                exit = true;
+            }
+        }
+          array[i+1] = array[tempI];
+          array[tempI] = holder;
+      }
+    }
+    //
+    return array;
+}
+*/
+let insertionSort = (inputArr) => {
+    let length = inputArr.length;
+    for (let i = 1; i < length; i++) {
+        let key = inputArr[i];
+        let j = i - 1;
+        while (j >= 0 && inputArr[j] > key) {
+            inputArr[j + 1] = inputArr[j];
+            j = j - 1;
+        }
+        inputArr[j + 1] = key;
+    }
+    return inputArr;
+};
+console.log(insertionSort([21, 43, 7, 31, 13, 16, 33, 9]));
+
+
