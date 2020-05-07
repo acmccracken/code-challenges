@@ -138,3 +138,29 @@ let insertionSort = (inputArr) => {
 console.log(insertionSort([21, 43, 7, 31, 13, 16, 33, 9]));
 
 
+    function singleNonDuplicate(nums) {
+    for(let i = 0; i < nums.length; i += 2){
+        if(nums[i] != nums[i+1]){
+            return nums[i]
+        }
+    }
+};
+
+var kConcatenationMaxSum = function(arr, k) {
+    let maxArr = [];
+    let maxSum = 0;
+    for(let i = 0; i < k; i++){
+        maxArr = maxArr.concat(arr);
+    }
+    for(let i = 0; i < maxArr.length; i++){
+        let currentSum = 0;
+        for(let j = i; j < maxArr.length; j++){
+            currentSum += maxArr[j];
+            maxSum = Math.max(maxSum, currentSum);
+        }   
+    }
+    return maxSum;
+};
+
+
+
