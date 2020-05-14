@@ -163,4 +163,79 @@ var kConcatenationMaxSum = function(arr, k) {
 };
 
 
+function twoSums(nums, target){
+    let finder = 0;
+    let answer = [];
+    for(let i = 0; i < nums.length; i++){
+        finder = target - nums[i];
+        secondIndex = nums.indexOf(target);
+        if(secondIndex != -1){
+            answer.push(i);
+            answer.push(secondIndex)
+        }
+    }
+    console.log(answer)
+};
 
+twoSums([2, 7, 11, 15], 9);
+
+/*
+function matchingStrings(strings, queries) {
+    let matching = [];
+    let val;
+    let countString = strings.reduce(function(acc, str) {
+      acc[str] = acc[str] ? acc[str] + 1 : 1
+      return acc
+    }, {})
+    for (let i = 0; i < queries.length; i++){
+      if(countString[queries[i]]){
+        val = countString[queries[i]]
+        matching.push(val)
+      } else {
+        matching.push(0)
+      }
+    }
+       return matching
+  }
+  */
+  console.log(matchingStrings(['aba', 'baba', 'aba', 'xzxb'], ['aba', 'xzxb', 'ab']))
+  console.log("^^^ should be [ 2, 1, 0]")
+
+  function matchingStrings(strings, queries) {
+    return queries.map((query) => 
+    strings.filter(s => s === query).length);
+}
+
+function coinChange(coins, amount) {
+    coins.sort((a,b) => a-b)
+    console.log(coins)
+    let result = 0;
+    for (let i = coins.length-1; i >= 0; i--) {
+        while (coins[i] <= amount) {
+            amount -= coins[i];
+            result += 1;
+            console.log(`amount: ${amount}`)
+        }
+    }
+    if (amount !== 0) {
+        return -1;
+    } else {
+        return result;
+    }
+}
+
+console.log(coinChange([1, 2, 5], 11))
+
+
+
+
+var twoSum = function(nums, target) {
+    for(let i = 0; i < nums.length; i ++){
+        for(let j = i+1; j < nums.length; j++){
+            if(nums[i] + nums[j] === target){
+                return (`[${i},${j}]`);
+            }
+        }
+    }
+ };
+ console.log(twoSum([2, 7, 11, 15], 9))
