@@ -239,3 +239,24 @@ var twoSum = function(nums, target) {
     }
  };
  console.log(twoSum([2, 7, 11, 15], 9))
+
+
+ var findNumbers = function(nums) {
+    let newNums = nums.filter(num => num.length % 2 === 0);
+    return newNums;
+};
+
+console.log(findNumbers(['cat', 'dogs']))
+
+
+function merge(nums1, m, nums2, n){
+    nums1.splice(m)
+    idx = 0;
+    while(nums2){
+        while(nums2[0] > nums1[idx]){
+            idx ++;
+        }
+        nums1.splice(1, idx, nums[0])
+        }
+    return nums1;
+}
