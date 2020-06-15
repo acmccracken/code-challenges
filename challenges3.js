@@ -60,3 +60,30 @@ var reverseString = function(s) {
         }
     }
 };
+
+
+var isPowerOfTwo = function(n) {
+    if(n === 0){
+        return false;
+    }
+    while(n % 2 === 0){
+        n = (n / 2);
+    }
+    if(n === 1){
+        return true;
+    }else{
+        return false;
+    }
+};
+
+var searchBST = function(root, val) {
+    while(root){
+        if(root.val === val){
+            return root;
+        }else if(root.val < val){
+            root = root.right;
+        }else{
+            root = root.left;
+        }
+    }return null;
+};
