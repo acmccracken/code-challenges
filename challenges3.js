@@ -125,29 +125,41 @@ var rob = function(nums) {
 
 //doesn't work, saving for reference
 var longestValidParentheses = function(s) {
-    let cache = [0, 0, 0];
-    for(let i = 0; i < s.length; i ++){
+    let longestValid = 0;
+    let distanceFromOpen = 0;
+    let balance = 0;
+    let currentValid = 0;
+    let pairsArray = [];
+    let openParenthesis = [0];
+    let closedParenthesis =[0]
+    let trend = 0;
+    for(let i = 0; i < s.length; i++){
+        distanceFromOpen++;
         if(s.charAt(i) == '('){
-            cache[2]++;
-            if((cache[2] > 1) && (cache[1] > 1)){
-                cache[2] -= 2;
-            }
-           
-        }else{
-            cache[2]--;
-            if(cache[2] < 0){
-                cache[2] ++;
-                cache[1] = 0;
-                
+            if(trend >= 0){
+                trend ++;
+                openParenthesis[0] ++;
             }else{
-                cache[1] += 2;
-                if (cache[1] > cache[0]){
-                    cache[0] = cache[1];
-                }
+                openParenthesis.unshift(1);
+                trend = 1;
             }
+        }else if(openParenthesis[0] > 0){
+            if(trend > 0){
+                if(openParenthesis[0] === 1){
+                    openParenthis
+                }
+            }else{
+                if(openParenthesis)
+            }
+        }else{
+            trend = 0;
         }
-        console.log(cache)
+    
+        console.log(distanceFromOpen)
+    }if(currentValid - (distanceFromOpen * 2) > longestValid){
+        longestValid = currentValid - (distanceFromOpen * 2);
     }
-    return cache[0];
+    return longestValid;
+    
     
 };
