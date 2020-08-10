@@ -148,8 +148,6 @@ var longestValidParentheses = function(s) {
                 if(openParenthesis[0] === 1){
                     openParenthis
                 }
-            }else{
-                if(openParenthesis)
             }
         }else{
             trend = 0;
