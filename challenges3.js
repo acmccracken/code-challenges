@@ -161,3 +161,32 @@ var longestValidParentheses = function(s) {
     
     
 };
+
+//save for later
+var maxSubArray = function(nums) {
+    
+    let highestTotal = 0;
+    let runningTotal = [];
+    let toRemove = {};
+    let count = 0;
+    let balance = 1;
+    for(let i = 0; i < nums.length; i ++){ 
+        if(balance > 0){
+            runningTotal[0] += nums[i];
+            if(nums[i]< 0){
+                balance = -1;
+            }
+        }else{
+            if(nums[i] > 0){
+                runningTotal.unshift(nums[i]);
+                balance = 1;
+            }else{
+                runningTotal[0]+= nums[i];
+            }
+        }
+        if(runningTotal[0])
+    };
+        
+    
+    
+};
