@@ -162,7 +162,7 @@ var longestValidParentheses = function(s) {
     
 };
 
-//save for later
+/* save for later
 var maxSubArray = function(nums) {
     
     let highestTotal = 0;
@@ -190,3 +190,4 @@ var maxSubArray = function(nums) {
     
     
 };
+*/
