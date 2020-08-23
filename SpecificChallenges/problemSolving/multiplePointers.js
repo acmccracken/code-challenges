@@ -54,34 +54,46 @@ function maxSubarraySum(arr, num){
     return maxSum;
 }
 /*
-console.log(maxSubarraySum([1,2,5,2,8,1,5],2)) // 11
+console.log(maxSubarraySum([1,2,5,2,8,1,5],2)) // 10
 console.log(maxSubarraySum([1,2,5,2,8,1,5],4)) // 17
 console.log(maxSubarraySum([4,2,1,6],1)) // 6
 console.log(maxSubarraySum([], 4)) // null
+console.log(maxSubarraySum([-3,-2,-8,-2,-4,-1], 2)) //-5
 */
 
 
-/* FINISH LATER
-sameFrequency(n1,n2){
+
+
+function sameFrequency(n1,n2) {
     let digits = {}
-    for(let i = 0; i < n1.length; i++){
-        num = n1[i];
+    
+    let n1Array = n1.toString().split('');
+    let n2Array = n2.toString().split('');
+    if (n1Array.length != n2Array.length){
+        return false;
+    }
+    for(let i = 0; i < n1Array.length; i++){
+        num = n1Array[i];
         if (num in digits){
-            digits.num ++;
+            digits[num] ++;
         }else{
-            digits.num = 1;
+            digits[num] = 1;
         }
     }
-    for(let i = 0; i < n2.length; i++){
-        num = n2[i];
-        if(!num in digits){
+    for(let i = 0; i < n2Array.length; i++){
+        num = n2Array[i];
+        if(!digits[num] || digits[num] === 0){
             return false;
-        }else if()
+        }else{
+            digits.num -= 1;
+        }
     }
+    return true;
 }
+
 console.log(sameFrequency(182,281)) //true
 console.log(sameFrequency(34,14)) //false
 console.log(sameFrequency(3589578, 5879385)) //true
 console.log(sameFrequency(22,222)) //false
 
-*/
+
