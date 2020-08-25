@@ -91,9 +91,27 @@ function sameFrequency(n1,n2) {
     return true;
 }
 
+/*
 console.log(sameFrequency(182,281)) //true
 console.log(sameFrequency(34,14)) //false
 console.log(sameFrequency(3589578, 5879385)) //true
 console.log(sameFrequency(22,222)) //false
+*/
 
+function reverse(str){
+    let arr = str.split();
+    let newArr = [];
+    function helper(arr){
+        newArr.push(arr.pop());
+        if(arr.length){
+            helper(push);
+        }
+    }
+    str = newArr.join();
+    return str;
+    
+  }
+  
+console.log(reverse('awesome')) // 'emosewa'
+console.log(reverse('rithmschool')) // 'loohcsmhtir'
 
