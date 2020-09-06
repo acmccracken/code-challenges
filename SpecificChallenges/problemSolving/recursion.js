@@ -75,23 +75,26 @@ function capitalizeFirst (arr) {
 
 // console.log(capitalizeFirst(['car', 'taco', 'banana']))
 
-//stuck a little, still figuring ot what's not working
+//stuck a little, still figuring ot what's not working.
+//definitely needs more work, but I should try something else
 function nestedEvenSum(obj) {
     let valArr = Object.values(obj);
+    console.log(valArr)
     let num = 0;
     let total = 0;
-    console.log(valArr)
-    while(num <= valArr.length){
-        if(typeof(valArr[num]) === Object){
-            nestedEvenSum(val[num]);
-        }else if(valArr[0] % 2 === 0){
-            total += valArr[0];
-            console.log(valArr)
+    function goInObject(valArr){
+        while(num <= valArr.length){
+            let newObj = valArr[num];
+            if(typeof(newObj) === 'object'){
+            return total += goInObject(newObj);
+            }else if(valArr[num] % 2 === 0){
+                total += valArr[num];
+                console.log(total)
+            }
+            num++;
         }
-        num++;
-        console.log(total)
     }
-    return total;
+    return goInObject(valArr);
 }
 
 var obj1 = {
@@ -114,5 +117,25 @@ var obj1 = {
     e: {e: {e: 2}, ee: 'car'}
   };
   
-  console.log(nestedEvenSum(obj1)); // 6
-  console.log(nestedEvenSum(obj2)); // 10
+//   console.log(nestedEvenSum(obj1)); // 6
+//   console.log(nestedEvenSum(obj2)); // 10
+
+//Write a recursive function called flatten which accepts an array of arrays and returns a new array with all values flattened
+
+function flatten(arr){
+    let newArr = [];
+    
+    for(let i = 0; i < arr.length; i++){
+        if(Array.isArray(arr[i])){
+            newArr = newArr.concat(flatten(arr[i]));
+        }else{
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
+console.log(flatten([1, 2, 3, [4, 5] ])) // [1, 2, 3, 4, 5]
+console.log(flatten([1, [2, [3, 4], [[5]]]])) // [1, 2, 3, 4, 5]
+console.log(flatten([[1],[2],[3]])) // [1,2,3]
+console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])) // [1,2,3]
