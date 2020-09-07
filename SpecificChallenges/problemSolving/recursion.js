@@ -131,11 +131,52 @@ function flatten(arr){
         }else{
             newArr.push(arr[i]);
         }
+        console.log("i: ", i, "  newArr: ", newArr, "  arr: ", arr);
     }
     return newArr;
 }
 
-console.log(flatten([1, 2, 3, [4, 5] ])) // [1, 2, 3, 4, 5]
-console.log(flatten([1, [2, [3, 4], [[5]]]])) // [1, 2, 3, 4, 5]
-console.log(flatten([[1],[2],[3]])) // [1,2,3]
-console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])) // [1,2,3]
+// console.log("answer: ", flatten([1, 2, 3, [4, 5] ])) // [1, 2, 3, 4, 5]
+// console.log("answer: ", flatten([1, [2, [3, 4], [[5]]]])) // [1, 2, 3, 4, 5]
+// console.log("answer: ", flatten([[1],[2],[3]])) // [1,2,3]
+// console.log("answer: ", flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])) // [1,2,3]
+
+
+//Problem 5
+//Generate all binary strings without consecutive 1’s
+//Given a integer K. Task is Print All binary string of size K (Given number).
+//return as array
+
+function binaryNoOnes(k){
+    let binaryArray = [];
+    let key = {};
+    let str = '';
+    let count = true;
+    function concatString(str){
+        while(str.length < k){
+            if(str in key){
+                return;
+            }else{
+                key.str = true;
+                concatString(str = str.concat('0'))
+                concatString(str = str.concat('1'));
+                
+            }
+        }
+        binaryArray.push(str);
+    }
+    concatString('');
+    return binaryArray;
+
+}
+
+
+
+// Input : K = 3  
+// Output : 000 , 001 , 010 , 100 , 101 
+
+// Input : K  = 4 
+// Output :0000 0001 0010 0100 0101 1000 1001 1010 
+
+console.log('answer: ', binaryNoOnes(3))
+console.log('answer: ', binaryNoOnes(4))
