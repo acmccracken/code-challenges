@@ -178,5 +178,31 @@ function binaryNoOnes(k){
 // Input : K  = 4 
 // Output :0000 0001 0010 0100 0101 1000 1001 1010 
 
-console.log('answer: ', binaryNoOnes(3))
-console.log('answer: ', binaryNoOnes(4))
+// console.log('answer: ', binaryNoOnes(3))
+// console.log('answer: ', binaryNoOnes(4))
+
+
+function factorial (n) {
+    if(n < 0) return null;
+    if(n === 0) return 1;
+    if(n > 2) return factorial(n-1) * n;
+    else return n;
+    
+}
+//console.log(factorial(-1));
+
+function arraySum(arr) {
+    let total = 0;
+    for(let i = 0; i < arr.length; i ++){
+        if(Array.isArray(arr[i])){
+            arr = arr.concat(arraySum(arr[0]))
+        }else{
+            total += arr[i]
+        }
+        console.log(arr)
+    }
+    return total;
+}
+
+//console.log(arraySum([3, 2, [3, 4, [1, 3]]]))
+
